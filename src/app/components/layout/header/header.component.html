@@ -1,0 +1,48 @@
+<!-- 把toolbar移到最上面 -->
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon (click)="sideNav.toggle()">menu</mat-icon>
+  </button>
+  <span>My App</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon" [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>settings</mat-icon>
+      <span>Settings</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>help</mat-icon>
+      <span>Help</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+
+<mat-sidenav-container>
+
+  <mat-sidenav #sideNav class="sidenav" mode="push" opened>
+    <mat-nav-list>
+      <a mat-list-item routerLink="home">
+        <span>
+          <mat-icon>home</mat-icon>
+        </span> Home</a>
+      <a mat-list-item routerLink="card">Card</a>
+      <a mat-list-item routerLink="table">Table</a>
+      <a mat-list-item routerLink="form">Form</a>
+      <a mat-list-item routerLink="dialog">Dialog</a>
+      <a mat-list-item routerLink="primeng">PrimeNG</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="vh-100">
+    <!-- 各個程式 route 搬到這裡 -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
